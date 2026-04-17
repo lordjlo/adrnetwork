@@ -409,13 +409,62 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 .orig-badge-fail{display:inline-flex;padding:2px 10px;border-radius:100px;font-size:11px;font-weight:600;background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
 .orig-card p{font-size:12px;color:var(--text-secondary);line-height:1.5}
 .guide-panel{padding:40px 0 80px}
-.guide-hero{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:36px 40px;margin-bottom:28px}
+.guide-hero{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:36px 40px;margin-bottom:28px;position:relative;overflow:hidden}
+.guide-hero::before{content:'';position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(99,102,241,0.06) 0%,transparent 70%);pointer-events:none}
+.guide-hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);font-weight:600;margin-bottom:12px}
 .guide-hero h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;line-height:1.3;margin-bottom:12px}
 .guide-hero p{font-size:15px;color:var(--text-secondary);line-height:1.8;max-width:680px}
+.guide-section{margin-bottom:28px}
+.guide-section-title{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.guide-section-sub{font-size:13px;color:var(--text-muted);margin-bottom:18px}
+.reading-order{display:flex;flex-direction:column;gap:0;margin-bottom:28px;position:relative}
+.reading-order::before{content:'';position:absolute;left:19px;top:40px;bottom:40px;width:2px;background:var(--border)}
+.ro-item{display:flex;gap:16px;align-items:flex-start;padding:16px 0;position:relative}
+.ro-num{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;flex-shrink:0;position:relative;z-index:1;border:2px solid}
+.ro-body h4{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:4px}
+.ro-body p{font-size:12px;color:var(--text-secondary);line-height:1.6}
+.ro-1 .ro-num{background:rgba(99,102,241,.12);border-color:var(--search-border);color:#a5b4fc}
+.ro-2 .ro-num{background:rgba(201,150,58,.12);border-color:var(--design-border);color:#fbbf24}
+.ro-3 .ro-num{background:rgba(244,63,94,.12);border-color:var(--compete-border);color:#fda4af}
+.ro-4 .ro-num{background:rgba(16,185,129,.12);border-color:var(--brand-border);color:#6ee7b7}
+.ro-5 .ro-num{background:rgba(6,182,212,.12);border-color:var(--growth-border);color:#67e8f9}
+.ro-6 .ro-num{background:rgba(255,255,255,.06);border-color:var(--border);color:var(--text-muted)}
+.score-explainer{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.score-band{padding:18px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);text-align:center}
+.score-band-num{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;margin-bottom:4px}
+.score-band-label{font-size:12px;font-weight:600;margin-bottom:4px}
+.score-band-desc{font-size:11px;color:var(--text-muted);line-height:1.5}
+.score-red{background:var(--red-bg);border-color:var(--red-border)}.score-red .score-band-num,.score-red .score-band-label{color:var(--red)}
+.score-orange{background:var(--orange-bg);border-color:var(--orange-border)}.score-orange .score-band-num,.score-orange .score-band-label{color:var(--orange)}
+.score-yellow{background:var(--yellow-bg);border-color:var(--yellow-border)}.score-yellow .score-band-num,.score-yellow .score-band-label{color:var(--yellow)}
+.score-green{background:var(--green-bg);border-color:var(--green-border)}.score-green .score-band-num,.score-green .score-band-label{color:var(--green)}
+.dim-explainer-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:10px;margin-bottom:28px}
+.dim-explain{display:flex;gap:18px;padding:20px 22px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);align-items:flex-start}
+.dim-explain-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.dim-explain-body h4{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:4px}
+.dim-explain-body p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.dim-explain-body .plain-english{font-size:12px;color:var(--text-muted);margin-top:5px;font-style:italic}
+.guide-faq{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.guide-faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.guide-faq-q{padding:16px 20px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.guide-faq-q:hover{background:rgba(255,255,255,.02)}
+.guide-faq-a{padding:0 20px 16px;font-size:13px;color:var(--text-secondary);line-height:1.7;display:none}
+.guide-faq-item.open .guide-faq-a{display:block}
+.guide-faq-chevron{font-size:12px;color:var(--text-muted);transition:transform .2s;flex-shrink:0}
+.guide-faq-item.open .guide-faq-chevron{transform:rotate(180deg)}
+.guide-prompt-explain{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;margin-bottom:14px}
+.guide-prompt-explain h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:10px}
+.guide-prompt-explain p{font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px}
+.guide-prompt-explain ol{padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.guide-prompt-explain li{font-size:13px;color:var(--text-secondary);line-height:1.6}
+.guide-prompt-explain li strong{color:var(--text)}
 .guide-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
 .guide-step{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden}
+.guide-step-num{font-family:'Space Grotesk',sans-serif;font-size:56px;font-weight:700;opacity:.06;position:absolute;top:6px;right:14px;line-height:1}
+.guide-step-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:var(--text-muted);margin-bottom:8px}
 .guide-step h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:8px}
 .guide-step p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+@media(max-width:768px){.guide-steps{grid-template-columns:1fr}.score-explainer{grid-template-columns:repeat(2,1fr)}}
 .prompt-block{margin-bottom:18px}
 .prompt-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--design);margin-bottom:7px}
 #panel-search .prompt-label{color:var(--search)}#panel-brand .prompt-label{color:var(--brand)}
@@ -543,34 +592,239 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 ══════════════════════════════════════════════════════ -->
 <div id="panel-guide" class="mode-panel">
 <div class="guide-panel"><div class="container">
+
   <div class="guide-hero">
-    <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);font-weight:600;margin-bottom:12px">Your guide to this report</div>
+    <div class="guide-hero-eyebrow">Your guide to this report</div>
     <h2>You've just received a Website Intelligence Report.<br>Here's exactly how to use it.</h2>
-    <p>This report audits adrnetwork.co.uk across five dimensions — Search, Design, Brand, Competition, and Growth. You don't need to be a marketing expert to use it. This page walks you through what everything means, where to start, and what to do next.</p>
+    <p>This report audits adrnetwork.co.uk across five dimensions — Search, Design, Brand, Competition, and Growth. You don't need to be a marketing expert to use it. This page will walk you through what everything means, where to start, and what to do next.</p>
   </div>
-  <div class="guide-steps">
-    <div class="guide-step" style="border-top:3px solid var(--search)">
-      <h3>Start with the Dashboard</h3>
-      <p>The Dashboard gives you five headline scores and the Top 5 Actions card. These are the most important things to know — you can act on them without reading anything else.</p>
-    </div>
-    <div class="guide-step" style="border-top:3px solid var(--design)">
-      <h3>Open the lowest score first</h3>
-      <p>Score rings are colour-coded. Red = urgent. Click "Open →" on the lowest-scoring dimension and go to its Overview tab. Read the Priority Actions — those are your next steps.</p>
-    </div>
-    <div class="guide-step" style="border-top:3px solid var(--brand)">
-      <h3>Use AI Prompt tabs to act immediately</h3>
-      <p>Each dimension ends with an AI Prompt tab. Copy the pre-filled brief and paste it into Claude or ChatGPT to generate ready-to-use content, copy, or code.</p>
+
+  <div class="guide-section">
+    <div class="guide-section-title">Where to Start</div>
+    <div class="guide-section-sub">Follow this order — it's designed so each step builds on the last</div>
+    <div class="reading-order">
+      <div class="ro-item ro-1">
+        <div class="ro-num">1</div>
+        <div class="ro-body">
+          <h4>Start here — read the Dashboard</h4>
+          <p>The Dashboard gives you the five headline scores, the "Top 5 Actions This Week" card, and the Strategic Timing Card. These are the most important things to know. You don't need to read the full report to act on the Act Now recommendations.</p>
+        </div>
+      </div>
+      <div class="ro-item ro-2">
+        <div class="ro-num">2</div>
+        <div class="ro-body">
+          <h4>Open the dimension with the lowest score first</h4>
+          <p>The score rings on the Dashboard are colour-coded. Red or orange means urgent. Click "Open →" on the lowest-scoring dimension and go to its Overview tab. Read the summary and the three Priority Actions — those are your immediate next steps.</p>
+        </div>
+      </div>
+      <div class="ro-item ro-3">
+        <div class="ro-num">3</div>
+        <div class="ro-body">
+          <h4>Use the tabs inside each dimension to go deeper</h4>
+          <p>Each dimension has multiple tabs — for example, Search has Overview, Technical, Content, Keywords, and more. You don't need to read all of them. The Overview tab is the summary. The other tabs are there when you want the full detail on a specific problem.</p>
+        </div>
+      </div>
+      <div class="ro-item ro-4">
+        <div class="ro-num">4</div>
+        <div class="ro-body">
+          <h4>Use the AI Prompt tab to take action immediately</h4>
+          <p>Each dimension ends with an "AI Prompt" tab. This contains a pre-filled brief you can copy and paste directly into Claude, ChatGPT, or any AI tool. It will generate ready-to-use content — whether that's an SEO-optimised page, a redesign specification, or a marketing campaign.</p>
+        </div>
+      </div>
+      <div class="ro-item ro-5">
+        <div class="ro-num">5</div>
+        <div class="ro-body">
+          <h4>Work through each dimension in priority order</h4>
+          <p>Once you've addressed the most urgent dimension, repeat the process for the next. The Dashboard "action grid" at the bottom shows the top quick wins for each area — use this as your running checklist.</p>
+        </div>
+      </div>
+      <div class="ro-item ro-6">
+        <div class="ro-num">6</div>
+        <div class="ro-body">
+          <h4>Share specific sections with the relevant person</h4>
+          <p>You don't need to share the whole report. If you have a web developer, send them to the Search and Design tabs. If you have a marketing team, send them to Brand and Growth. Each tab is self-contained and designed to brief a specialist directly.</p>
+        </div>
+      </div>
     </div>
   </div>
-  <div style="padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px">
-    <div class="section-title">Score bands</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px">
-      <div style="padding:16px;border-radius:var(--radius-sm);background:var(--red-bg);border:1px solid var(--red-border);text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--red)">0–39</div><div style="font-size:12px;font-weight:600;color:var(--red)">Critical</div><div style="font-size:11px;color:var(--text-muted);margin-top:4px">Actively costing visibility, trust, or revenue. Fix this week.</div></div>
-      <div style="padding:16px;border-radius:var(--radius-sm);background:var(--orange-bg);border:1px solid var(--orange-border);text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--orange)">40–59</div><div style="font-size:12px;font-weight:600;color:var(--orange)">Needs Work</div><div style="font-size:11px;color:var(--text-muted);margin-top:4px">Below average. Fundamentals in place but underperforming vs competitors.</div></div>
-      <div style="padding:16px;border-radius:var(--radius-sm);background:var(--yellow-bg);border:1px solid var(--yellow-border);text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--yellow)">60–79</div><div style="font-size:12px;font-weight:600;color:var(--yellow)">Good</div><div style="font-size:11px;color:var(--text-muted);margin-top:4px">Above average. Strong foundations with targeted improvement opportunities.</div></div>
-      <div style="padding:16px;border-radius:var(--radius-sm);background:var(--green-bg);border:1px solid var(--green-border);text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--green)">80+</div><div style="font-size:12px;font-weight:600;color:var(--green)">Excellent</div><div style="font-size:11px;color:var(--text-muted);margin-top:4px">Leading performance. Maintain while focusing efforts elsewhere.</div></div>
+
+  <div class="guide-section">
+    <div class="guide-section-title">What the Scores Mean</div>
+    <div class="guide-section-sub">Every dimension is scored out of 100. Here's how to interpret the colours.</div>
+    <div class="score-explainer">
+      <div class="score-band score-red">
+        <div class="score-band-num">0–39</div>
+        <div class="score-band-label">Critical</div>
+        <div class="score-band-desc">Serious problems that are actively costing you visibility, credibility, or customers. Act within 30 days.</div>
+      </div>
+      <div class="score-band score-orange">
+        <div class="score-band-num">40–59</div>
+        <div class="score-band-label">Needs Work</div>
+        <div class="score-band-desc">Below industry standard. You are behind competitors and losing ground. Plan to fix within 60–90 days.</div>
+      </div>
+      <div class="score-band score-yellow">
+        <div class="score-band-num">60–79</div>
+        <div class="score-band-label">Average</div>
+        <div class="score-band-desc">Functional but not competitive. You won't stand out. Good foundation to build from — focus on raising to 80+.</div>
+      </div>
+      <div class="score-band score-green">
+        <div class="score-band-num">80–100</div>
+        <div class="score-band-label">Strong</div>
+        <div class="score-band-desc">Above average. You are ahead of most competitors in this dimension. Maintain and look for the next area to improve.</div>
+      </div>
     </div>
   </div>
+
+  <div class="guide-section">
+    <div class="guide-section-title">What Each Dimension Covers</div>
+    <div class="guide-section-sub">Plain English explanations — no jargon</div>
+    <div class="dim-explainer-grid">
+      <div class="dim-explain">
+        <div class="dim-explain-dot" style="background:var(--search)"></div>
+        <div class="dim-explain-body">
+          <h4>Search — Can people find you on Google?</h4>
+          <p>This measures how visible adrnetwork.co.uk is when fleet managers search for HGV driver agencies, logistics recruitment, or specialist driver supply. It covers technical site health, page content quality, internal structure, trust signals, and keyword targeting.</p>
+          <div class="plain-english">Think of it as: if a transport director searched "HGV driver agency UK" or "specialist logistics recruitment" right now, would they find ADR? A score of 34 means the answer is almost certainly no.</div>
+        </div>
+      </div>
+      <div class="dim-explain">
+        <div class="dim-explain-dot" style="background:var(--design)"></div>
+        <div class="dim-explain-body">
+          <h4>Design — Does your site look the part?</h4>
+          <p>This assesses whether the website's visual presentation matches the enterprise credibility ADR needs to win large B2B contracts. It covers layout, visual identity, colour, typography, and motion. A site that looks dated or generic loses deals before a prospect reads a word.</p>
+          <div class="plain-english">Think of it as: if a fleet manager arrived at your site after hearing ADR supplies The Co-op and Royal Mail, would the site reinforce that credibility — or contradict it?</div>
+        </div>
+      </div>
+      <div class="dim-explain">
+        <div class="dim-explain-dot" style="background:var(--brand)"></div>
+        <div class="dim-explain-body">
+          <h4>Brand — Are you saying the right things, consistently?</h4>
+          <p>This looks at whether ADR's brand communicates its unique advantages clearly across the website. It covers tone and writing quality, digital presence, positioning clarity, and whether the dual-audience problem (drivers and fleet managers) is being addressed.</p>
+          <div class="plain-english">Think of it as: does the site make it immediately obvious that ADR has tSOLV, Pertemps Group backing, and FTSE 100 clients — and does it say that confidently every time?</div>
+        </div>
+      </div>
+      <div class="dim-explain">
+        <div class="dim-explain-dot" style="background:var(--compete)"></div>
+        <div class="dim-explain-body">
+          <h4>Compete — How do you compare to your competitors?</h4>
+          <p>This maps ADR's position against Driver Hire (primary) and Driver Require (secondary). It looks at what they do well online, where they're vulnerable, what gap ADR could own, and whether the site is differentiated enough for a buyer to choose ADR over them.</p>
+          <div class="plain-english">Think of it as: if a fleet manager looked at ADR's site and Driver Hire's site side by side right now, what would make them choose ADR — and is that obvious?</div>
+        </div>
+      </div>
+      <div class="dim-explain">
+        <div class="dim-explain-dot" style="background:var(--growth)"></div>
+        <div class="dim-explain-body">
+          <h4>Growth — Is your site set up to win new business?</h4>
+          <p>This evaluates whether the site has the infrastructure to attract and convert both audiences — fleet managers and HGV drivers. It covers customer avatars, traffic strategy, conversion copy, and the metrics that show what's working.</p>
+          <div class="plain-english">Think of it as: beyond people who already know ADR, is the website actively generating new driver applications and B2B enquiries? A low score means it probably isn't — and here's why.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="guide-section">
+    <div class="guide-section-title">How to Use the AI Prompt Tabs</div>
+    <div class="guide-section-sub">The fastest way to turn this report into action</div>
+    <div class="guide-prompt-explain">
+      <h3>What is an AI Prompt tab?</h3>
+      <p>At the end of each dimension (Search, Design, Brand, Compete, Growth) there is a tab called "AI Prompt". This contains a pre-filled brief — a set of specific instructions already populated with the findings from your audit.</p>
+      <p>You can copy this brief and paste it directly into an AI tool (Claude at claude.ai, ChatGPT at chat.openai.com, or similar) to generate ready-to-use output — an SEO-optimised page, a redesign specification, a brand positioning document, or a marketing campaign.</p>
+      <ol>
+        <li><strong>Click the "AI Prompt" tab</strong> inside any dimension panel (e.g. Search → AI Prompt)</li>
+        <li><strong>Read through the brief</strong> — all the fields are pre-filled based on your audit findings. You can edit any field before using it.</li>
+        <li><strong>Copy the entire card</strong> and paste it into your AI tool of choice</li>
+        <li><strong>Add one instruction at the end</strong> — for example: "Write the complete page content following this brief exactly" or "Build this as a complete single-file HTML page"</li>
+        <li><strong>The output will be specific to your business</strong> — not a generic template, because the brief already contains your context, your keywords, your audience, and your goals</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="guide-section">
+    <div class="guide-section-title">Common Questions</div>
+    <div class="guide-section-sub">Straightforward answers</div>
+    <div class="guide-faq">
+      <div class="guide-faq-item open">
+        <div class="guide-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Do I need to fix everything at once? <span class="guide-faq-chevron">▼</span>
+        </div>
+        <div class="guide-faq-a">No. Start with the Act Now actions in the "Top 5 Actions This Week" card on the Dashboard — these are flagged with a red "Act Now" badge and are the highest-leverage moves. Doing just those first will make a measurable difference. Then work through the Optimal Window actions, and finally through each dimension in order of lowest score.</div>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          I'm not technical — can I still act on this? <span class="guide-faq-chevron">▼</span>
+        </div>
+        <div class="guide-faq-a">Yes. Most of the priority actions in this report are content and strategy changes, not technical ones. The AI Prompt tabs generate ready-to-use content that you can hand to a web developer or use directly. The technical items (like adding schema markup or fixing meta descriptions) have step-by-step instructions in the relevant tabs.</div>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How was this report created? <span class="guide-faq-chevron">▼</span>
+        </div>
+        <div class="guide-faq-a">This report was generated by crawling and analysing your live website alongside Driver Hire and Driver Require. The scoring is based on industry benchmarks — Technical SEO standards, UX and design best practices, brand positioning frameworks, competitive market analysis, and growth metrics. The findings and recommendations are specific to ADR Network, not a generic template.</div>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How long will these improvements take? <span class="guide-faq-chevron">▼</span>
+        </div>
+        <div class="guide-faq-a">It depends on the dimension. Search improvements (meta descriptions, schema markup) take 4–12 weeks to show results in Google. Design changes are visible immediately. Brand and copy changes are immediate. Competitive positioning is ongoing. Each dimension's tab gives a phased timeline specific to your site.</div>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Who should I share this report with? <span class="guide-faq-chevron">▼</span>
+        </div>
+        <div class="guide-faq-a">Suggested routing: Dashboard and this How to Use page for any senior stakeholder who needs the overview. The Search tab for your web developer or digital agency. The Design tab for your designer. The Brand tab for your marketing team or copywriter. The Compete tab for your commercial or business development lead. The Growth tab for your sales or operations lead.</div>
+      </div>
+      <div class="guide-faq-item">
+        <div class="guide-faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How accurate are these scores? <span class="guide-faq-chevron">▼</span>
+        </div>
+        <div class="guide-faq-a">Each score is calculated against industry benchmarks — W3C technical standards for SEO, established UX heuristics for Design, brand positioning frameworks for Brand, and so on. They reflect measurable gaps, not arbitrary ratings. Treat the scores as a directional indicator of where effort should be focused, not a precise audit number.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="guide-section">
+    <div class="guide-section-title">Quick Reference</div>
+    <div class="guide-section-sub">Tab structure at a glance</div>
+    <div class="guide-steps">
+      <div class="guide-step" style="border-top:3px solid var(--search)">
+        <div class="guide-step-num">S</div>
+        <div class="guide-step-label" style="color:#a5b4fc">Search</div>
+        <h3>10 Tabs</h3>
+        <p>Overview · Technical · Content · Structure · Authority · Keywords · Business Impact · AI Search · Pages · AI Prompt</p>
+      </div>
+      <div class="guide-step" style="border-top:3px solid var(--design)">
+        <div class="guide-step-num">D</div>
+        <div class="guide-step-label" style="color:#fbbf24">Design</div>
+        <h3>8 Tabs</h3>
+        <p>Overview · Layout · Visual Identity · Colour &amp; Type · Motion &amp; UX · Anti-Patterns · Roadmap · AI Prompt</p>
+      </div>
+      <div class="guide-step" style="border-top:3px solid var(--brand)">
+        <div class="guide-step-num">B</div>
+        <div class="guide-step-label" style="color:#6ee7b7">Brand</div>
+        <h3>5 Tabs</h3>
+        <p>Overview · Digital Presence · Voice &amp; Copy · Recommendations · AI Prompt</p>
+      </div>
+      <div class="guide-step" style="border-top:3px solid var(--compete)">
+        <div class="guide-step-num">C</div>
+        <div class="guide-step-label" style="color:#fda4af">Compete</div>
+        <h3>7 Tabs</h3>
+        <p>Landscape · Market Context · Driver Hire · Driver Require · Gaps &amp; Opportunities · Attack Plan · AI Prompt</p>
+      </div>
+      <div class="guide-step" style="border-top:3px solid var(--growth)">
+        <div class="guide-step-num">G</div>
+        <div class="guide-step-label" style="color:#67e8f9">Growth</div>
+        <h3>5 Tabs</h3>
+        <p>Customer Avatar · Traffic Strategy · Conversion Copy · Growth Metrics · AI Prompt</p>
+      </div>
+      <div class="guide-step" style="border-top:3px solid rgba(255,255,255,.15)">
+        <div class="guide-step-num">?</div>
+        <div class="guide-step-label" style="color:var(--text-muted)">Tip</div>
+        <h3>Always start with Overview</h3>
+        <p>The Overview tab in each dimension is the summary. The other tabs are the detailed evidence. You only need to go deeper if you want to understand the full reasoning.</p>
+      </div>
+    </div>
+  </div>
+
 </div></div>
 </div>
 
@@ -1254,8 +1508,11 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
 
 <!-- TAB: WEB LENS -->
 <div id="tab-seo-weblens" class="tab-content"><div class="container">
-  <div class="section-title">Web Revenue Lens</div>
+  <div class="section-title">Business Impact</div>
   <div class="section-subtitle">£-denominated analysis of keyword opportunity, cost of inaction, and ROI</div>
+  <div style="padding:12px 16px;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius-sm);margin-bottom:20px;font-size:12px;color:var(--text-secondary);line-height:1.6">
+    <strong style="color:var(--blue)">Disclaimer:</strong> All figures in this section are estimates based on industry average search volumes, click-through rates, and conversion benchmarks. They are indicative models intended to illustrate the scale of the revenue opportunity — not audited revenue figures. Actual results will vary based on ADR Network's specific conversion rates, contract values, and competitive position at the time of implementation.
+  </div>
 
   <!-- Component A -->
   <div class="card" style="margin-bottom:20px">
